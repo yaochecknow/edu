@@ -1,10 +1,12 @@
+var fullscreen = document.getElementById("fullscreen"); //浮层
+// 轮播图
 (function() {
-  var turnbanner = setInterval(interrun, 5000);
-  var Mybanner = document.getElementsByClassName("banner"); //获取图片
-  var Mypoint = document.getElementsByClassName("point"); //获取点
-  var pictwall = document.getElementsByClassName("O124_in_wall");
-  var intergo = 0;
-  var fullscreen = document.getElementById("fullscreen"); //浮层
+  
+});
+
+// 照片墙
+(function() {
+
   //获取元素当前属性-----------------------------
   function getstyle(obj, name) {
     if (window.getComputedStyle) {
@@ -13,6 +15,16 @@
       return obj.currentStyle[name];
     }
   }
+  var pictwall = document.getElementsByClassName("O124_in_wall");
+});
+
+// 
+
+(function() {
+  var turnbanner = setInterval(interrun, 5000);
+  var Mybanner = document.getElementsByClassName("banner"); //获取图片
+  var Mypoint = document.getElementsByClassName("point"); //获取点
+  var intergo = 0;
   // 点击按钮事件----------------------------------
   function clickpoint() {
     for (var i = 0; i < Mypoint.length; i++) {
@@ -36,19 +48,6 @@
     }
     bannerrun();
   }
-  function stopBannerChange() {
-    for (var i = 0; i < Mybanner.length; i++) {
-      (function(index) {
-        Mybanner[index].addEventListener("mouseover", function() {
-          clearInterval(turnbanner);
-          Mybanner[index].addEventListener("mouseout", function() {
-            console.log("sss");
-            turnbanner
-          });
-        });
-      })(i);
-    }
-  }
   // 设置图片名字-----------------------------------
   function bannerrun() {
     clearbanner();
@@ -69,6 +68,18 @@
       Mybanner[i].className = "banner";
     }
   }
+  setInterval(interrun, 5000);
+  clickpoint();
+  bannerrun();
+  function getstyle(obj, name) {
+    if (window.getComputedStyle) {
+      return getComputedStyle(obj, null)[name];
+    } else {
+      return obj.currentStyle[name];
+    }
+  }
+  var pictwall = document.getElementsByClassName("O124_in_wall");
+ 
   // 照片墙----------------------------------------
   function addleftsize() {
     var wallleft = parseInt(getstyle(pictwall[0], "left")); //获取照片墙样式
@@ -166,7 +177,7 @@
       var li = document.createElement(element);
       var gztext = document.createTextNode(i);
       li.appendChild(gztext);
-      pagefather.insertBefore(li, rightChange[0]);
+      fatherele.insertBefore(li, brotherele);
     }
   }
   //-------
@@ -181,16 +192,16 @@
    * @param {object} courseinthis //获取的该页面的数据
    */
   function onepagecourse(courseinthis) {
-    for (var i = 0; i < 20; i++) {
-      courseimg[i * 2].src = courseinthis.list[i].image;
-      courseimg[i * 2 + 1].src = courseinthis.list[i].image;
-      coursestuNum[i].innerHTML = courseinthis.list[i].studentNum;
-      courseprice[i].innerHTML = courseinthis.list[i].price;
-      coursetitle[i].innerHTML = courseinthis.list[i].title;
-      coursefrom[i].innerHTML = courseinthis.list[i].author;
-      coursekind[i].innerHTML = courseinthis.list[i].type;
-      coursedescrb[i].innerHTML = courseinthis.list[i].description;
-    }
+    // for (var i = 0; i < 20; i++) {
+    //   courseimg[i * 2].src = courseinthis.list[i].image;
+    //   courseimg[i * 2 + 1].src = courseinthis.list[i].image;
+    //   coursestuNum[i].innerHTML = courseinthis.list[i].studentNum;
+    //   courseprice[i].innerHTML = courseinthis.list[i].price;
+    //   coursetitle[i].innerHTML = courseinthis.list[i].title;
+    //   coursefrom[i].innerHTML = courseinthis.list[i].author;
+    //   coursekind[i].innerHTML = courseinthis.list[i].type;
+    //   coursedescrb[i].innerHTML = courseinthis.list[i].description;
+    // }
   }
   onepagecourse(courseDesigns);
   /**
@@ -207,7 +218,7 @@
     Math.ceil(courseDesigns.total / 20),
     "li",
     pagefather,
-    rightChange
+    rightChange[0]
   );
   var pageindex = 1;
   var pages = pagefather.childNodes;
@@ -287,7 +298,7 @@
       Math.ceil(courseDesigns.total / 20),
       "li",
       pagefather,
-      rightChange
+      rightChange[0]
     );
     this.style.backgroundColor = "#3b9e32";
     this.style.color = "#ffffff";
@@ -311,7 +322,7 @@
       Math.ceil(courseProgramms.total / 20),
       "li",
       pagefather,
-      rightChange
+      rightChange[0]
     );
     this.style.backgroundColor = "#3b9e32";
     this.style.color = "#ffffff";
@@ -326,11 +337,7 @@
     coursechage = getProgramData(pageindex, 20);
     onepagecourse(coursechage);
   };
-  setInterval(interrun, 5000);
-  stopBannerChange();
   pointpage();
   nore();
   setInterval(addleftsize, 10);
-  clickpoint();
-  bannerrun();
 })();
