@@ -1,69 +1,959 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/all.css" />
-  </head>
-  <body>
-    <div class="box">
-      <!-- 不再提示 -->
-      <div class="remindhead">
-        <div>
-          <span
-            >网易云课堂微专业，帮助你掌握专业技能，令你求职或加薪多一份独特优势!<a
-              href=""
-              >立即查看></a
-            ></span
-          >
-          <span><a href="">不再提醒</a></span>
-        </div>
-      </div>
-      <!-- 头部 -->
-      <div class="head">
-        <div class="head_left">
-          <div>网易教育产品部</div>
-          <!-- 关注按钮 -->
-          <div>
-            <div class="atten">
-              <div><span>关注</span><a href="">取消</a></div>
-              <span>粉丝</span>
-              <span>45</span>
-            </div>
-          </div>
-        </div>
-        <!-- 三大链接 -->
-        <div class="head_right">
-          <a href="">网易公开课</a>
-          <a href="">云课堂</a>
-          <a href="">中国大学MOOC</a>
-          <a href=""></a>
-        </div>
-      </div>
-      <!-- 轮播大图区 -->
-      <div class="turn_picture">
-        <!-- 图 -->
-        <ul class="banner_area">
-          <li class="banner_picrure">
-            <a href=""><img src="./forindex/banner1.jpg"/></a>
-          </li>
-          <li class="banner_picrure active">
-            <a href=""><img src="./forindex/banner2.jpg"/></a>
-          </li>
-          <li class="banner_picrure">
-            <a href=""><img src="./forindex/banner3.jpg"/></a>
-          </li>
-        </ul>
-        <!-- 点 -->
-        <ul class="silder">
-          <li class="point" data-inde="0"></li>
-          <li class="point" data-inde="1"></li>
-          <li class="point" data-inde="2"></li>
-        </ul>
-      </div>
+    <link rel="stylesheet" href="./all.css">
+</head>
+<body>
+    <!-- 浮层 -->
+    <div class="O124_fullscreen" id="fullscreen">
+
     </div>
-    <script src="./edu.js"></script>
-  </body>
+    <!-- 不再提醒区域 -->
+    <div class="O124_remaind">
+        <div class="O124_inremaind f-cl contained" id="remaindarea">
+            <div class="O124_remaind_left">
+                    网易云课堂微专业，帮助你掌握专业技能，令你求职或加薪多一份独特优势!<a href=""> 立即查看></a>
+            </div>
+            <div class="O124_remaind_right" id='noremaind'>
+                <i>不再提醒</i>
+            </div>
+        </div>
+    </div>
+    <!-- 头部界面 -->
+    <div class="O124_head">
+        <div class="O124_inhead f-cl contained">
+            <div class="O124_inhead_logo">
+                网易教育产品部
+            </div>
+            <div class="O124_inhead_inten" id="intenbigbu">
+                <div class="O124_inten_button">
+                    <span id="intenbu">
+                        关注
+                    </span>
+                    <i href="" id="cansobu">
+                        取消
+                    </i>
+                </div>  
+                <span class="O124_fans">粉丝</span>
+                <span>45</span>
+            </div>
+            <div class="maglass">
+                
+            </div>
+            <div class="O124_inhead_right">
+                <a href="http://open.163.com/ ">网易公开课</a>
+                <a href="http://study.163.com/ ">云课堂</a>
+                <a href="http://www.icourse163.org/ ">中国大学MOOC</a>
+            </div>
+        </div>
+    </div>
+    <div class="O124_log_in_area">
+        <span class="cha"></span>
+        <span class="O124_log_in_char">登录网易云课堂</span>
+        <input type="text" class="O124_account" placeholder="账号">
+        <input type="password" class="O124_passwd" placeholder="密码">
+        <button class="O124_log_but">登录</button>
+    </div>
+    <!-- 轮播图界面 -->
+    <div class="O124_turn_picture_area">
+        <ul class="O124_turn_picture">
+            <li class="banner active"><a href="http://open.163.com/ "><img src="./img/banner1.jpg"></a></li>
+            <li class="banner"><a href="http://study.163.com/ "><img src="./img/banner2.jpg"></a></li>
+            <li class="banner"><a href="http://www.icourse163.org/ "><img src="./img/banner3.jpg"></a></li>
+        </ul>
+        <ul class="slider">
+            <i class="point onpoint"></i>
+            <i class="point"></i>
+            <i class="point"></i>
+        </ul>
+    </div>
+    <!-- 三个导航 -->
+    <div class="O124_three_navi">
+        <div class="O124_in_navi contained f-cl">
+            <div class="O124_navi1">
+                <div class="O124_in_bavi1">
+                    <h3>网易公开课</h3>
+                    <p>推出国内外名校公开课，涉及广泛的学科，名校老师认真讲解深度剖析，网易视频公开课频道搭建起强有力的网络视频教学平台。</p>
+                    <a href="">了解更多></a>
+                </div>
+            </div>
+            <div class="O124_navi2">
+                <div class="O124_in_bavi2">
+                    <h3>云课堂</h3>
+                    <p>网易旗下大型在线学习平台，该平台面向学习者提供海量免费、优质课程,创新的个性化学习体验，自由开放的交流互动环境。</p>
+                    <a href="">了解更多></a>
+                </div>
+            </div>
+            <div class="O124_navi3">
+                <div class="O124_in_bavi3">
+                    <h3>中国大学MOOC</h3>
+                    <p>是爱课程网携手云课堂打造的在线学习平台，每一个有提升愿望的人,都可以在这里学习中国最好的大学课程，学完还能获得认证证书。</p>
+                    <a href="">了解更多></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 照片墙区域 -->
+    <div class="O124_picture_wall">
+        <div class="O124_in_wall">
+            <ul class="O124_picture_list1">
+                <li><img src="./img/picture_wall1.png" alt=""></li>
+                <li><img src="./img/picture_wall2.png" alt=""></li>
+                <li><img src="./img/picture_wall3.png" alt=""></li>
+                <li><img src="./img/picture_wall4.png" alt=""></li>
+                <li><img src="./img/picture_wall5.png" alt=""></li>
+            </ul>
+            <ul class="O124_picture_list2">
+                <li><img src="./img/picture_wall1.png" alt=""></li>
+                <li><img src="./img/picture_wall2.png" alt=""></li>
+                <li><img src="./img/picture_wall3.png" alt=""></li>
+                <li><img src="./img/picture_wall4.png" alt=""></li>
+                <li><img src="./img/picture_wall5.png" alt=""></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 课程选择主体区域 -->
+    <div class="O124_class_list">
+        <div class="O124_in_class_list contained f-cl">
+            <!-- 主体左边 -->
+            <div class="O124_list_left">
+                <!-- 两个按钮 -->
+                <div class="O124_inleft_button">
+                    <span class="O124_inleft_button1" id="big_button1">
+                        产品设计
+                    </span>
+                    <span class="O124_inleft_button2" id="big_button2">
+                        编程语言
+                    </span>
+                </div>
+                <!-- 课程 -->
+                <div class="O124_inleft_main">
+                    <ul class="O124_inleft_main_ul">
+                        <li>
+                            <div>
+                                <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                            </div>
+                            <div>
+                                <span class="O124_inpict_cha1">
+                                        混音全揭秘 舞曲实战篇 揭秘音乐揭秘..
+                                </span>
+                                <span class="O124_inpict_cha2">
+                                        音频帮
+                                </span>
+                                <span class="O124_student_num">
+                                    510
+                                </span>
+                                <span class="O124_inpict_price">
+                                        ￥800.00
+                                </span>
+                            </div>
+                            <div id='O124_mouse_detail'>
+                                <div class="O124_detail_imga">
+                                    <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                                </div>
+                                <div class="O124_detail_right">
+                                    <div class="O124_detail_title">手绘画系列教程</div>
+                                    <div class="O124_detail_peonum">57人在学</div>
+                                    <div class="O124_detail_from">发布者：几分钟网</div>
+                                    <div class="O124_detail_kind">分类：手绘设计</div>
+                                </div>
+                                <div class="O124_detail_descrb">生活中不乏有很多美好的画面，何不用画笔记录下来呢？那么就跟 几分钟网一起来记录美好画面吧！</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                            </div>
+                            <div>
+                                <span class="O124_inpict_cha1">
+                                        混音全揭秘 舞曲实战篇 揭秘音乐揭秘..
+                                </span>
+                                <span class="O124_inpict_cha2">
+                                        音频帮
+                                </span>
+                                <span class="O124_student_num">
+                                    510
+                                </span>
+                                <span class="O124_inpict_price">
+                                        ￥800.00
+                                </span>
+                            </div>
+                            <div id='O124_mouse_detail'>
+                                <div class="O124_detail_imga">
+                                    <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                                </div>
+                                <div class="O124_detail_right">
+                                    <div class="O124_detail_title">手绘画系列教程</div>
+                                    <div class="O124_detail_peonum">57人在学</div>
+                                    <div class="O124_detail_from">发布者：几分钟网</div>
+                                    <div class="O124_detail_kind">分类：手绘设计</div>
+                                </div>
+                                <div class="O124_detail_descrb">生活中不乏有很多美好的画面，何不用画笔记录下来呢？那么就跟 几分钟网一起来记录美好画面吧！</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                            </div>
+                            <div>
+                                <span class="O124_inpict_cha1">
+                                        混音全揭秘 舞曲实战篇 揭秘音乐揭秘..
+                                </span>
+                                <span class="O124_inpict_cha2">
+                                        音频帮
+                                </span>
+                                <span class="O124_student_num">
+                                    510
+                                </span>
+                                <span class="O124_inpict_price">
+                                        ￥800.00
+                                </span>
+                            </div>
+                            <div id='O124_mouse_detail'>
+                                <div class="O124_detail_imga">
+                                    <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                                </div>
+                                <div class="O124_detail_right">
+                                    <div class="O124_detail_title">手绘画系列教程</div>
+                                    <div class="O124_detail_peonum">57人在学</div>
+                                    <div class="O124_detail_from">发布者：几分钟网</div>
+                                    <div class="O124_detail_kind">分类：手绘设计</div>
+                                </div>
+                                <div class="O124_detail_descrb">生活中不乏有很多美好的画面，何不用画笔记录下来呢？那么就跟 几分钟网一起来记录美好画面吧！</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                            </div>
+                            <div>
+                                <span class="O124_inpict_cha1">
+                                        混音全揭秘 舞曲实战篇 揭秘音乐揭秘..
+                                </span>
+                                <span class="O124_inpict_cha2">
+                                        音频帮
+                                </span>
+                                <span class="O124_student_num">
+                                    510
+                                </span>
+                                <span class="O124_inpict_price">
+                                        ￥800.00
+                                </span>
+                            </div>
+                            <div id='O124_mouse_detail'>
+                                <div class="O124_detail_imga">
+                                    <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                                </div>
+                                <div class="O124_detail_right">
+                                    <div class="O124_detail_title">手绘画系列教程</div>
+                                    <div class="O124_detail_peonum">57人在学</div>
+                                    <div class="O124_detail_from">发布者：几分钟网</div>
+                                    <div class="O124_detail_kind">分类：手绘设计</div>
+                                </div>
+                                <div class="O124_detail_descrb">生活中不乏有很多美好的画面，何不用画笔记录下来呢？那么就跟 几分钟网一起来记录美好画面吧！</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="O124_fuceng_datail">
+                                <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                            </div>
+                            <div>
+                                <span class="O124_inpict_cha1">
+                                        混音全揭秘 舞曲实战篇 揭秘音乐揭秘..
+                                </span>
+                                <span class="O124_inpict_cha2">
+                                        音频帮
+                                </span>
+                                <span class="O124_student_num">
+                                    510
+                                </span>
+                                <span class="O124_inpict_price">
+                                        ￥800.00
+                                </span>
+                            </div>
+                            <div id='O124_mouse_detail'>
+                                <div class="O124_detail_imga">
+                                    <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                                </div>
+                                <div class="O124_detail_right">
+                                    <div class="O124_detail_title">手绘画系列教程</div>
+                                    <div class="O124_detail_peonum">57人在学</div>
+                                    <div class="O124_detail_from">发布者：几分钟网</div>
+                                    <div class="O124_detail_kind">分类：手绘设计</div>
+                                </div>
+                                <div class="O124_detail_descrb">生活中不乏有很多美好的画面，何不用画笔记录下来呢？那么就跟 几分钟网一起来记录美好画面吧！</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                            </div>
+                            <div>
+                                <span class="O124_inpict_cha1">
+                                        混音全揭秘 舞曲实战篇 揭秘音乐揭秘..
+                                </span>
+                                <span class="O124_inpict_cha2">
+                                        音频帮
+                                </span>
+                                <span class="O124_student_num">
+                                    510
+                                </span>
+                                <span class="O124_inpict_price">
+                                        ￥800.00
+                                </span>
+                            </div>
+                            <div id='O124_mouse_detail'>
+                                <div class="O124_detail_imga">
+                                    <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                                </div>
+                                <div class="O124_detail_right">
+                                    <div class="O124_detail_title">手绘画系列教程</div>
+                                    <div class="O124_detail_peonum">57人在学</div>
+                                    <div class="O124_detail_from">发布者：几分钟网</div>
+                                    <div class="O124_detail_kind">分类：手绘设计</div>
+                                </div>
+                                <div class="O124_detail_descrb">生活中不乏有很多美好的画面，何不用画笔记录下来呢？那么就跟 几分钟网一起来记录美好画面吧！</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                            </div>
+                            <div>
+                                <span class="O124_inpict_cha1">
+                                        混音全揭秘 舞曲实战篇 揭秘音乐揭秘..
+                                </span>
+                                <span class="O124_inpict_cha2">
+                                        音频帮
+                                </span>
+                                <span class="O124_student_num">
+                                    510
+                                </span>
+                                <span class="O124_inpict_price">
+                                        ￥800.00
+                                </span>
+                            </div>
+                            <div id='O124_mouse_detail'>
+                                <div class="O124_detail_imga">
+                                    <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                                </div>
+                                <div class="O124_detail_right">
+                                    <div class="O124_detail_title">手绘画系列教程</div>
+                                    <div class="O124_detail_peonum">57人在学</div>
+                                    <div class="O124_detail_from">发布者：几分钟网</div>
+                                    <div class="O124_detail_kind">分类：手绘设计</div>
+                                </div>
+                                <div class="O124_detail_descrb">生活中不乏有很多美好的画面，何不用画笔记录下来呢？那么就跟 几分钟网一起来记录美好画面吧！</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                            </div>
+                            <div>
+                                <span class="O124_inpict_cha1">
+                                        混音全揭秘 舞曲实战篇 揭秘音乐揭秘..
+                                </span>
+                                <span class="O124_inpict_cha2">
+                                        音频帮
+                                </span>
+                                <span class="O124_student_num">
+                                    510
+                                </span>
+                                <span class="O124_inpict_price">
+                                        ￥800.00
+                                </span>
+                            </div>
+                            <div id='O124_mouse_detail'>
+                                <div class="O124_detail_imga">
+                                    <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                                </div>
+                                <div class="O124_detail_right">
+                                    <div class="O124_detail_title">手绘画系列教程</div>
+                                    <div class="O124_detail_peonum">57人在学</div>
+                                    <div class="O124_detail_from">发布者：几分钟网</div>
+                                    <div class="O124_detail_kind">分类：手绘设计</div>
+                                </div>
+                                <div class="O124_detail_descrb">生活中不乏有很多美好的画面，何不用画笔记录下来呢？那么就跟 几分钟网一起来记录美好画面吧！</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                            </div>
+                            <div>
+                                <span class="O124_inpict_cha1">
+                                        混音全揭秘 舞曲实战篇 揭秘音乐揭秘..
+                                </span>
+                                <span class="O124_inpict_cha2">
+                                        音频帮
+                                </span>
+                                <span class="O124_student_num">
+                                    510
+                                </span>
+                                <span class="O124_inpict_price">
+                                        ￥800.00
+                                </span>
+                            </div>
+                            <div id='O124_mouse_detail'>
+                                <div class="O124_detail_imga">
+                                    <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                                </div>
+                                <div class="O124_detail_right">
+                                    <div class="O124_detail_title">手绘画系列教程</div>
+                                    <div class="O124_detail_peonum">57人在学</div>
+                                    <div class="O124_detail_from">发布者：几分钟网</div>
+                                    <div class="O124_detail_kind">分类：手绘设计</div>
+                                </div>
+                                <div class="O124_detail_descrb">生活中不乏有很多美好的画面，何不用画笔记录下来呢？那么就跟 几分钟网一起来记录美好画面吧！</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                            </div>
+                            <div>
+                                <span class="O124_inpict_cha1">
+                                        混音全揭秘 舞曲实战篇 揭秘音乐揭秘..
+                                </span>
+                                <span class="O124_inpict_cha2">
+                                        音频帮
+                                </span>
+                                <span class="O124_student_num">
+                                    510
+                                </span>
+                                <span class="O124_inpict_price">
+                                        ￥800.00
+                                </span>
+                            </div>
+                            <div id='O124_mouse_detail'>
+                                <div class="O124_detail_imga">
+                                    <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                                </div>
+                                <div class="O124_detail_right">
+                                    <div class="O124_detail_title">手绘画系列教程</div>
+                                    <div class="O124_detail_peonum">57人在学</div>
+                                    <div class="O124_detail_from">发布者：几分钟网</div>
+                                    <div class="O124_detail_kind">分类：手绘设计</div>
+                                </div>
+                                <div class="O124_detail_descrb">生活中不乏有很多美好的画面，何不用画笔记录下来呢？那么就跟 几分钟网一起来记录美好画面吧！</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                            </div>
+                            <div>
+                                <span class="O124_inpict_cha1">
+                                        混音全揭秘 舞曲实战篇 揭秘音乐揭秘..
+                                </span>
+                                <span class="O124_inpict_cha2">
+                                        音频帮
+                                </span>
+                                <span class="O124_student_num">
+                                    510
+                                </span>
+                                <span class="O124_inpict_price">
+                                        ￥800.00
+                                </span>
+                            </div>
+                            <div id='O124_mouse_detail'>
+                                <div class="O124_detail_imga">
+                                    <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                                </div>
+                                <div class="O124_detail_right">
+                                    <div class="O124_detail_title">手绘画系列教程</div>
+                                    <div class="O124_detail_peonum">57人在学</div>
+                                    <div class="O124_detail_from">发布者：几分钟网</div>
+                                    <div class="O124_detail_kind">分类：手绘设计</div>
+                                </div>
+                                <div class="O124_detail_descrb">生活中不乏有很多美好的画面，何不用画笔记录下来呢？那么就跟 几分钟网一起来记录美好画面吧！</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                            </div>
+                            <div>
+                                <span class="O124_inpict_cha1">
+                                        混音全揭秘 舞曲实战篇 揭秘音乐揭秘..
+                                </span>
+                                <span class="O124_inpict_cha2">
+                                        音频帮
+                                </span>
+                                <span class="O124_student_num">
+                                    510
+                                </span>
+                                <span class="O124_inpict_price">
+                                        ￥800.00
+                                </span>
+                            </div>
+                            <div id='O124_mouse_detail'>
+                                <div class="O124_detail_imga">
+                                    <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                                </div>
+                                <div class="O124_detail_right">
+                                    <div class="O124_detail_title">手绘画系列教程</div>
+                                    <div class="O124_detail_peonum">57人在学</div>
+                                    <div class="O124_detail_from">发布者：几分钟网</div>
+                                    <div class="O124_detail_kind">分类：手绘设计</div>
+                                </div>
+                                <div class="O124_detail_descrb">生活中不乏有很多美好的画面，何不用画笔记录下来呢？那么就跟 几分钟网一起来记录美好画面吧！</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                            </div>
+                            <div>
+                                <span class="O124_inpict_cha1">
+                                        混音全揭秘 舞曲实战篇 揭秘音乐揭秘..
+                                </span>
+                                <span class="O124_inpict_cha2">
+                                        音频帮
+                                </span>
+                                <span class="O124_student_num">
+                                    510
+                                </span>
+                                <span class="O124_inpict_price">
+                                        ￥800.00
+                                </span>
+                            </div>
+                            <div id='O124_mouse_detail'>
+                                <div class="O124_detail_imga">
+                                    <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                                </div>
+                                <div class="O124_detail_right">
+                                    <div class="O124_detail_title">手绘画系列教程</div>
+                                    <div class="O124_detail_peonum">57人在学</div>
+                                    <div class="O124_detail_from">发布者：几分钟网</div>
+                                    <div class="O124_detail_kind">分类：手绘设计</div>
+                                </div>
+                                <div class="O124_detail_descrb">生活中不乏有很多美好的画面，何不用画笔记录下来呢？那么就跟 几分钟网一起来记录美好画面吧！</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                            </div>
+                            <div>
+                                <span class="O124_inpict_cha1">
+                                        混音全揭秘 舞曲实战篇 揭秘音乐揭秘..
+                                </span>
+                                <span class="O124_inpict_cha2">
+                                        音频帮
+                                </span>
+                                <span class="O124_student_num">
+                                    510
+                                </span>
+                                <span class="O124_inpict_price">
+                                        ￥800.00
+                                </span>
+                            </div>
+                            <div id='O124_mouse_detail'>
+                                <div class="O124_detail_imga">
+                                    <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                                </div>
+                                <div class="O124_detail_right">
+                                    <div class="O124_detail_title">手绘画系列教程</div>
+                                    <div class="O124_detail_peonum">57人在学</div>
+                                    <div class="O124_detail_from">发布者：几分钟网</div>
+                                    <div class="O124_detail_kind">分类：手绘设计</div>
+                                </div>
+                                <div class="O124_detail_descrb">生活中不乏有很多美好的画面，何不用画笔记录下来呢？那么就跟 几分钟网一起来记录美好画面吧！</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                            </div>
+                            <div>
+                                <span class="O124_inpict_cha1">
+                                        混音全揭秘 舞曲实战篇 揭秘音乐揭秘..
+                                </span>
+                                <span class="O124_inpict_cha2">
+                                        音频帮
+                                </span>
+                                <span class="O124_student_num">
+                                    510
+                                </span>
+                                <span class="O124_inpict_price">
+                                        ￥800.00
+                                </span>
+                            </div>
+                            <div id='O124_mouse_detail'>
+                                <div class="O124_detail_imga">
+                                    <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                                </div>
+                                <div class="O124_detail_right">
+                                    <div class="O124_detail_title">手绘画系列教程</div>
+                                    <div class="O124_detail_peonum">57人在学</div>
+                                    <div class="O124_detail_from">发布者：几分钟网</div>
+                                    <div class="O124_detail_kind">分类：手绘设计</div>
+                                </div>
+                                <div class="O124_detail_descrb">生活中不乏有很多美好的画面，何不用画笔记录下来呢？那么就跟 几分钟网一起来记录美好画面吧！</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                            </div>
+                            <div>
+                                <span class="O124_inpict_cha1">
+                                        混音全揭秘 舞曲实战篇 揭秘音乐揭秘..
+                                </span>
+                                <span class="O124_inpict_cha2">
+                                        音频帮
+                                </span>
+                                <span class="O124_student_num">
+                                    510
+                                </span>
+                                <span class="O124_inpict_price">
+                                        ￥800.00
+                                </span>
+                            </div>
+                            <div id='O124_mouse_detail'>
+                                <div class="O124_detail_imga">
+                                    <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                                </div>
+                                <div class="O124_detail_right">
+                                    <div class="O124_detail_title">手绘画系列教程</div>
+                                    <div class="O124_detail_peonum">57人在学</div>
+                                    <div class="O124_detail_from">发布者：几分钟网</div>
+                                    <div class="O124_detail_kind">分类：手绘设计</div>
+                                </div>
+                                <div class="O124_detail_descrb">生活中不乏有很多美好的画面，何不用画笔记录下来呢？那么就跟 几分钟网一起来记录美好画面吧！</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                            </div>
+                            <div>
+                                <span class="O124_inpict_cha1">
+                                        混音全揭秘 舞曲实战篇 揭秘音乐揭秘..
+                                </span>
+                                <span class="O124_inpict_cha2">
+                                        音频帮
+                                </span>
+                                <span class="O124_student_num">
+                                    510
+                                </span>
+                                <span class="O124_inpict_price">
+                                        ￥800.00
+                                </span>
+                            </div>
+                            <div id='O124_mouse_detail'>
+                                <div class="O124_detail_imga">
+                                    <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                                </div>
+                                <div class="O124_detail_right">
+                                    <div class="O124_detail_title">手绘画系列教程</div>
+                                    <div class="O124_detail_peonum">57人在学</div>
+                                    <div class="O124_detail_from">发布者：几分钟网</div>
+                                    <div class="O124_detail_kind">分类：手绘设计</div>
+                                </div>
+                                <div class="O124_detail_descrb">生活中不乏有很多美好的画面，何不用画笔记录下来呢？那么就跟 几分钟网一起来记录美好画面吧！</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                            </div>
+                            <div>
+                                <span class="O124_inpict_cha1">
+                                        混音全揭秘 舞曲实战篇 揭秘音乐揭秘..
+                                </span>
+                                <span class="O124_inpict_cha2">
+                                        音频帮
+                                </span>
+                                <span class="O124_student_num">
+                                    510
+                                </span>
+                                <span class="O124_inpict_price">
+                                        ￥800.00
+                                </span>
+                            </div>
+                            <div id='O124_mouse_detail'>
+                                <div class="O124_detail_imga">
+                                    <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                                </div>
+                                <div class="O124_detail_right">
+                                    <div class="O124_detail_title">手绘画系列教程</div>
+                                    <div class="O124_detail_peonum">57人在学</div>
+                                    <div class="O124_detail_from">发布者：几分钟网</div>
+                                    <div class="O124_detail_kind">分类：手绘设计</div>
+                                </div>
+                                <div class="O124_detail_descrb">生活中不乏有很多美好的画面，何不用画笔记录下来呢？那么就跟 几分钟网一起来记录美好画面吧！</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                            </div>
+                            <div>
+                                <span class="O124_inpict_cha1">
+                                        混音全揭秘 舞曲实战篇 揭秘音乐揭秘..
+                                </span>
+                                <span class="O124_inpict_cha2">
+                                        音频帮
+                                </span>
+                                <span class="O124_student_num">
+                                    510
+                                </span>
+                                <span class="O124_inpict_price">
+                                        ￥800.00
+                                </span>
+                            </div>
+                            <div id='O124_mouse_detail'>
+                                <div class="O124_detail_imga">
+                                    <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                                </div>
+                                <div class="O124_detail_right">
+                                    <div class="O124_detail_title">手绘画系列教程</div>
+                                    <div class="O124_detail_peonum">57人在学</div>
+                                    <div class="O124_detail_from">发布者：几分钟网</div>
+                                    <div class="O124_detail_kind">分类：手绘设计</div>
+                                </div>
+                                <div class="O124_detail_descrb">生活中不乏有很多美好的画面，何不用画笔记录下来呢？那么就跟 几分钟网一起来记录美好画面吧！</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                            </div>
+                            <div>
+                                <span class="O124_inpict_cha1">
+                                        混音全揭秘 舞曲实战篇 揭秘音乐揭秘..
+                                </span>
+                                <span class="O124_inpict_cha2">
+                                        音频帮
+                                </span>
+                                <span class="O124_student_num">
+                                    510
+                                </span>
+                                <span class="O124_inpict_price">
+                                        ￥800.00
+                                </span>
+                            </div>
+                            <div id='O124_mouse_detail'>
+                                <div class="O124_detail_imga">
+                                    <img src="./img/left_main_picture.png" alt="" class="O124_change_img">
+                                </div>
+                                <div class="O124_detail_right">
+                                    <div class="O124_detail_title">手绘画系列教程</div>
+                                    <div class="O124_detail_peonum">57人在学</div>
+                                    <div class="O124_detail_from">发布者：几分钟网</div>
+                                    <div class="O124_detail_kind">分类：手绘设计</div>
+                                </div>
+                                <div class="O124_detail_descrb">生活中不乏有很多美好的画面，何不用画笔记录下来呢？那么就跟 几分钟网一起来记录美好画面吧！</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 页码 -->
+                <div class="O124_page_number">
+                    <ul id="O124_pagefather"><li class="O124_left_change"></li><li class="O124_right_change"></li></ul>
+                </div>
+            </div>
+            <div class="O124_list_right">
+                <!-- 视频 -->
+                <div class="O124_play_area" id="video_area">
+                    <span class="O124_cha_cha" id="cha"></span>
+                    <div class="O124_please_kan">请观看下面的视频</div>
+                    <div class="O124_true_video" id="video">
+                        <embed src="http://mov.bn.netease.com/open-movie/nos/mp4/2014/12/30/SADQ86F5S_shd.mp4" controls='controls'>
+                    </div>
+                </div>
+                <div class="O124_video">
+                    <span class="O124_introduce">机构介绍</span>
+                    <span class="O124_video_main" id="videoon">观看下面的视频来了解吧</span>
+                </div>
+                <!-- 排行榜 -->
+                <div class="O124_ranking_list">
+                    <span class="O124_hostest">最热排行</span>
+                    <div class="O124_hostest_main">
+                        <ul>
+                            <li>
+                                <div>
+
+                                </div>
+                                <div>
+                                    <span>
+                                            舞曲揭秘音乐揭秘...
+                                    </span>
+                                    <span>
+                                        <img src="./img/people_number.png" alt="">
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+
+                                </div>
+                                <div>
+                                    <span>
+                                            舞曲揭秘音乐揭秘...
+                                    </span>
+                                    <span>
+                                        <img src="./img/people_number.png" alt="">
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+
+                                </div>
+                                <div>
+                                    <span>
+                                            舞曲揭秘音乐揭秘...
+                                    </span>
+                                    <span>
+                                        <img src="./img/people_number.png" alt="">
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+
+                                </div>
+                                <div>
+                                    <span>
+                                            舞曲揭秘音乐揭秘...
+                                    </span>
+                                    <span>
+                                        <img src="./img/people_number.png" alt="">
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+
+                                </div>
+                                <div>
+                                    <span>
+                                            舞曲揭秘音乐揭秘...
+                                    </span>
+                                    <span>
+                                        <img src="./img/people_number.png" alt="">
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+
+                                </div>
+                                <div>
+                                    <span>
+                                            舞曲揭秘音乐揭秘...
+                                    </span>
+                                    <span>
+                                        <img src="./img/people_number.png" alt="">
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+
+                                </div>
+                                <div>
+                                    <span>
+                                            舞曲揭秘音乐揭秘...
+                                    </span>
+                                    <span>
+                                        <img src="./img/people_number.png" alt="">
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+
+                                </div>
+                                <div>
+                                    <span>
+                                            舞曲揭秘音乐揭秘...
+                                    </span>
+                                    <span>
+                                        <img src="./img/people_number.png" alt="">
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+
+                                </div>
+                                <div>
+                                    <span>
+                                            舞曲揭秘音乐揭秘...
+                                    </span>
+                                    <span>
+                                        <img src="./img/people_number.png" alt="">
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+
+                                </div>
+                                <div>
+                                    <span>
+                                            舞曲揭秘音乐揭秘...
+                                    </span>
+                                    <span>
+                                        <img src="./img/people_number.png" alt="">
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 页脚 -->
+    <div class="O124_foot">
+        <div class="O124_infoot f-cl">
+            <div class="O124_foot_left">
+                <div class="O124_foot_logo">
+                    网易教育产品部
+                </div>
+                <h3>
+                        ©2014 icourse163.org 浙ICP备08114786号-1
+                </h3>
+                <h3>
+                        icourses.cn 京ICP备12020869号-2京公网安备110102000459-2
+                </h3>
+            </div>
+            <div class="O124_foot_right">
+                <div>
+                    <h3>友情链接：</h3>
+                    <a href="">网易公开课</a>
+                    <a href="">网易云课堂</a>
+                    <a href="">中国大学MOOC</a>
+                </div>
+                <div>
+                    <h3>我们：</h3>
+                    <a href="">关于</a>
+                    <a href="">联系</a>
+                    <a href="" class="O124_weibo_logo">关注</a>
+                </div>
+                <div style="position: relative">
+                    <div class="O124_last_list">
+                    <h3>更多：</h3>
+                    <a href="">常见问题</a>
+                    <a href="">意见反馈</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/design_course.js"></script>
+    <script src="./js/program_course.js"></script>
+    <script src="./js/edu.js"></script>
+    <script src="./js/execute.js"></script>
+</body>
 </html>
