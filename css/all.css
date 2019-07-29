@@ -46,7 +46,7 @@ body{min-width: 1250px;font: 12px/1.14 "Arial", "Hiragino Sans GB", \5fae\8f6f\9
     float: right;
     width: 82px;
     text-align: center;
-    background: url(./img/no_remind.png) no-repeat;
+    background: url(../img/no_remind.png) no-repeat;
     background-position-x: left;
     background-position-y: center;
     cursor: pointer;
@@ -66,7 +66,7 @@ body{min-width: 1250px;font: 12px/1.14 "Arial", "Hiragino Sans GB", \5fae\8f6f\9
     text-align: right;
     width: 238px;
     font-size: 22px;
-    background: url(./img/main_logo.png) no-repeat;
+    background: url(../img/main_logo.png) no-repeat;
     background-position-x: left;
     background-position-y: center;
     
@@ -87,7 +87,7 @@ body{min-width: 1250px;font: 12px/1.14 "Arial", "Hiragino Sans GB", \5fae\8f6f\9
     display: inline-block;
     width: 41px;
     height: 22px;
-    background: url(./img/add_logo.png) no-repeat;
+    background: url(../img/add_logo.png) no-repeat;
     background-color: #21a557;
     background-position-y:center;
     background-position-x: 8px;
@@ -105,7 +105,7 @@ body{min-width: 1250px;font: 12px/1.14 "Arial", "Hiragino Sans GB", \5fae\8f6f\9
     display: none;
     width: 40px;
     color: #979797;
-    background: url(./img/canso_left.png) no-repeat;
+    background: url(../img/canso_left.png) no-repeat;
     background-position-y: center;
 }
 .O124_inhead_inten .O124_inten_button>i:hover{
@@ -134,10 +134,10 @@ body{min-width: 1250px;font: 12px/1.14 "Arial", "Hiragino Sans GB", \5fae\8f6f\9
     float: right;
     width: 20px;
     height: 20px;
-    background: url(./img/maglass.png) no-repeat;
+    background: url(../img/maglass.png) no-repeat;
 }
 .maglass:hover{
-    background: url(./img/green_maglass.png) no-repeat;
+    background: url(../img/green_maglass.png) no-repeat;
     background-position-y: -1px;
 }
 /* 登陆界面 */
@@ -158,7 +158,7 @@ body{min-width: 1250px;font: 12px/1.14 "Arial", "Hiragino Sans GB", \5fae\8f6f\9
     height: 10px;
     margin-top:10px;
     margin-left: 370px;
-    background: url(./img/cha_cha.png) no-repeat;
+    background: url(../img/cha_cha.png) no-repeat;
     background-position-y: -7px;
     background-position-x: -6px;
     cursor: pointer;
@@ -195,7 +195,7 @@ body{min-width: 1250px;font: 12px/1.14 "Arial", "Hiragino Sans GB", \5fae\8f6f\9
     height: 46px;
     margin-left: 40px;
     margin-top: 30px;
-    background: url(./img/log_but.png) no-repeat;
+    background: url(../img/log_but.png) no-repeat;
     border: none;
     box-shadow: 2px 2px #d5e3da;
     color: #ffffff;
@@ -261,21 +261,21 @@ body{min-width: 1250px;font: 12px/1.14 "Arial", "Hiragino Sans GB", \5fae\8f6f\9
     float: left;
     height: 176px;
     width: 340px;
-    background: url(./img/play_logo1.png) no-repeat;
+    background: url(../img/play_logo1.png) no-repeat;
     background-position-y: 8px;
 }
 .O124_three_navi .O124_in_navi .O124_navi2{
     float: left;
     height: 176px;
     width: 340px;
-    background: url(./img/play_logo2.png) no-repeat;
+    background: url(../img/play_logo2.png) no-repeat;
     margin-left: 100px;
 }
 .O124_three_navi .O124_in_navi .O124_navi3{
     float: right;
     height: 176px;
     width: 340px;
-    background: url(./img/play_logo3.png) no-repeat;
+    background: url(../img/play_logo3.png) no-repeat;
 }
 .O124_in_bavi1{
     height: 174px;
@@ -423,7 +423,7 @@ body{min-width: 1250px;font: 12px/1.14 "Arial", "Hiragino Sans GB", \5fae\8f6f\9
     border-radius: 3px;
     margin-left: 6px;
     margin-top: 10px;
-    background: url(./img/people_head.png) no-repeat;
+    background: url(../img/people_head.png) no-repeat;
     background-position-y: 2px;
     background-position-x: 3px;
 }
@@ -464,7 +464,7 @@ body{min-width: 1250px;font: 12px/1.14 "Arial", "Hiragino Sans GB", \5fae\8f6f\9
     font-size: 12px;
     margin-top: 16px;
     padding-left: 20px;
-    background: url(./img/people_head.png) no-repeat;
+    background: url(../img/people_head.png) no-repeat;
     background-position-y: center;
     background-position-x: 5px;
 }
@@ -522,7 +522,7 @@ body{min-width: 1250px;font: 12px/1.14 "Arial", "Hiragino Sans GB", \5fae\8f6f\9
 .O124_left_change{
     height: 20px;
     width: 30px;
-    background: url(./img/left_change.png) no-repeat;
+    background: url(../img/left_change.png) no-repeat;
     background-position-x: center;
     background-position-y: center;
     background-color: #9dd8b1;
@@ -531,7 +531,7 @@ body{min-width: 1250px;font: 12px/1.14 "Arial", "Hiragino Sans GB", \5fae\8f6f\9
 .O124_right_change{
     height: 20px;
     width: 30px;
-    background: url(./img/right_change.png) no-repeat;
+    background: url(../img/right_change.png) no-repeat;
     background-position-x: center;
     background-position-y: center;
     background-color: #9dd8b1;
@@ -568,7 +568,7 @@ body{min-width: 1250px;font: 12px/1.14 "Arial", "Hiragino Sans GB", \5fae\8f6f\9
     width: 10px;
     margin-left: 926px;
     margin-top: 12px;
-    background: url(./img/cha_cha.png) no-repeat;
+    background: url(../img/cha_cha.png) no-repeat;
     background-position-y: -7px;
     background-position-x: -6px;
     cursor: pointer;
@@ -608,7 +608,7 @@ body{min-width: 1250px;font: 12px/1.14 "Arial", "Hiragino Sans GB", \5fae\8f6f\9
 .O124_list_right .O124_video .O124_video_main{
     cursor: pointer;
     display: inline-block;
-    background: url(./img/video.png) no-repeat;
+    background: url(../img/video.png) no-repeat;
     background-position-x: center;
     background-position-y: 22px;
     width: 180px;
@@ -653,7 +653,7 @@ body{min-width: 1250px;font: 12px/1.14 "Arial", "Hiragino Sans GB", \5fae\8f6f\9
     display: inline-block;
     width: 50px;
     height: 50px;
-    background: url(./img/rigt_list_pict.png) no-repeat;
+    background: url(../img/rigt_list_pict.png) no-repeat;
     background-position-y: center;
 }
 .O124_ranking_list .O124_hostest_main ul li>div:last-child{
@@ -694,7 +694,7 @@ body{min-width: 1250px;font: 12px/1.14 "Arial", "Hiragino Sans GB", \5fae\8f6f\9
     color: #39a030;
     line-height: 22px;
     text-align: center;
-    background: url(./img/foot_logo.png) no-repeat;
+    background: url(../img/foot_logo.png) no-repeat;
     background-position-x: left;
     background-position-y: center;
 }
@@ -746,7 +746,7 @@ body{min-width: 1250px;font: 12px/1.14 "Arial", "Hiragino Sans GB", \5fae\8f6f\9
 .O124_weibo_logo{
     height: 50px;
     width: 70px;
-    background: url(./img/weibo.png) no-repeat;
+    background: url(../img/weibo.png) no-repeat;
     background-position-x: 40px;
     background-position-y: 2px;
 }
