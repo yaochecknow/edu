@@ -335,25 +335,17 @@ body{min-width: 1250px;font: 12px/1.14 "Arial", "Hiragino Sans GB", \5fae\8f6f\9
     float: left;
 }
 /* 两个按钮 */
-.O124_list_left .O124_inleft_button{
-    font-size: 20px;
+.O124_list_left .O124_inleft_button_wrap{
     height: 50px;
-    width: 406px;
+    width: 400px;
+    font-size: 0;
     box-shadow: 1px 1px 1px #d4d3d3;
 }
-.O124_list_left .O124_inleft_button .O124_inleft_button1{
-    color: #ffffff;
-    display: inline-block;
-    height: 50px;
-    width: 200px;
-    background-color: #3b9e32;
-    line-height: 50px;
-    text-align: center;
-    transition: 1s;
-}
-.O124_list_left .O124_inleft_button .O124_inleft_button2{
+
+.O124_list_left .O124_inleft_button_wrap .O124_inleft_button{
     display: inline-block;
     color: #666666;
+    font-size: 20px;
     height: 50px;
     width: 200px;
     background-color: #ffffff;
@@ -361,6 +353,10 @@ body{min-width: 1250px;font: 12px/1.14 "Arial", "Hiragino Sans GB", \5fae\8f6f\9
     text-align: center;
     cursor: pointer;
     transition: 1s;
+}
+.O124_list_left .O124_inleft_button_wrap .O124_inleft_button.active{
+    color: #ffffff;
+    background-color: #3b9e32;
 }
 /* 课程商品展览列表 */
 .O124_list_left .O124_inleft_main{
@@ -371,7 +367,7 @@ body{min-width: 1250px;font: 12px/1.14 "Arial", "Hiragino Sans GB", \5fae\8f6f\9
 .O124_inleft_main_ul{
     list-style-type: none;
 }
-.O124_inleft_main_ul li{
+.O124_inleft_main_ul .O124_courses{
     height: 228px;
     width: 224px;
     box-shadow: 1px 1px 1px #d4d3d3;
@@ -379,8 +375,9 @@ body{min-width: 1250px;font: 12px/1.14 "Arial", "Hiragino Sans GB", \5fae\8f6f\9
     margin-right: 18px;
     margin-bottom: 18px;
     float: left;
+    
 }
-.O124_inleft_main_ul li:hover{
+.O124_inleft_main_ul .O124_courses:hover{
     box-shadow: 4px 4px 4px #d4d3d3;
 }
 .O124_inleft_main_ul li:hover .O124_inpict_cha1{
@@ -402,6 +399,10 @@ body{min-width: 1250px;font: 12px/1.14 "Arial", "Hiragino Sans GB", \5fae\8f6f\9
     color: #333333;
     margin-top: 10px;
     margin-left: 6px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 224px;
+    overflow: hidden;
 }
 .O124_inleft_main_ul .O124_inpict_cha2{
     display: block;
