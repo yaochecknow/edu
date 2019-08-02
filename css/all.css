@@ -92,7 +92,7 @@ body{min-width: 1250px;font: 12px/1.14 "Arial", "Hiragino Sans GB", \5fae\8f6f\9
     background-position-y:center;
     background-position-x: 8px;
     font-size: 12px;
-    line-height: 22px;
+    line-height: 24px;
     text-align: center;
     padding-left: 13px;
 }
@@ -210,11 +210,11 @@ body{min-width: 1250px;font: 12px/1.14 "Arial", "Hiragino Sans GB", \5fae\8f6f\9
     left: 49%;
     margin-left: -808px;
     position: absolute;
+    transition: 2s;
 }
 .O124_turn_picture_area .O124_turn_picture .banner{
     position: absolute;
     height: 460px;
-    transition: 1s;
 }
 .slider{
     top: 550px;

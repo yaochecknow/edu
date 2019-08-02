@@ -1,8 +1,60 @@
 var fullscreen = document.getElementById("fullscreen"); //浮层
 
+var cookie = {
+  //获取cookie
+  get: function() {
+    var cookieObj = {};
+    var all = document.cookie;
+    if (all === "") return cookieObj;
+    var list = all.split("; ");
+    for (var i = 0; i < list.length; i++) {
+      var item = list[i];
+      var arr = item.split("=");
+      var name = arr[0];
+      var value = arr[1];
+      name = decodeURIComponent(name);
+      value = decodeURIComponent(value);
+      cookieObj[name] = value;
+    }
+    return cookieObj;
+  },
+  //设置cookie
+  set: function(name, value, expires, path, domain, secure) {
+    var cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+    if (expires) {
+      cookie += "; expires=" + expires.toGMTString();
+    }
+    if (path) {
+      cookie += "; path=" + path;
+    }
+    if (domain) {
+      cookie += "; domain=" + domain;
+    }
+    if (secure) {
+      cookie += "; secure=" + secure;
+    }
+    document.cookie = cookie;
+  },
+  //取得cookie配合删除cookie
+  getCookie: function(name) {
+    let arr = document.cookie.match(
+      new RegExp("(^| )" + name + "=([^;]*)(;|$)")
+    );
+    if (arr != null) return unescape(arr[2]);
+    return null;
+  },
+  //删除cookie
+  remove: function(name) {
+    var exp = new Date();
+    exp.setTime(exp.getTime() - 1);
+    var cval = this.getCookie(name);
+    if (cval != null)
+      document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
+  }
+};
+
 /*********************-----轮播图-----*********************/
 (function() {
-  var turnbanner = setInterval(interrun, 5000);
   var Mybanner = document.getElementsByClassName("banner"); //获取图片
   var Mypoint = document.getElementsByClassName("point"); //获取点
   var intergo = 0;
@@ -36,7 +88,7 @@ var fullscreen = document.getElementById("fullscreen"); //浮层
     clearpoint();
     Mypoint[intergo].className = "point onpoint";
   }
-  // 清除按钮点击-------------------------------------
+  // 清除按钮名字-------------------------------------
   function clearpoint() {
     for (var i = 0; i < Mypoint.length; i++) {
       Mypoint[i].className = "point";
@@ -87,23 +139,57 @@ var fullscreen = document.getElementById("fullscreen"); //浮层
   var canso = document.getElementById("cansobu");
   var LogIn = document.getElementsByClassName("O124_log_in_area");
   var LogCha = document.getElementsByClassName("cha");
+  var username = document.getElementsByClassName("O124_account");
+  var password = document.getElementsByClassName("O124_passwd");
+  var LogInButton = document.getElementsByClassName("O124_log_but");
+  var clickflag = true;
+  function intenButtonAjax(callback) {
+    var xhr = new XMLHttpRequest();
+    var userMessage = {
+      username: username[0].value,
+      password: password[0].value
+    };
+    xhr.open("POST", "http://127.0.0.1:3000/auth/login", true);
+    xhr.responseType = "json";
+    xhr.setRequestHeader("Content-type", "Application/JSON; charset=utf-8");
+    xhr.send(JSON.stringify(userMessage));
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          callback();
+        } else {
+          alert("账号密码错误");
+        }
+      }
+    };
+  }
   inten.onclick = function() {
-    LogIn[0].style.display = "block";
-    fullscreen.style.display = "block";
-    LogCha[0].onclick = function() {
+    if (clickflag) {
+      clickflag = false;
+      LogIn[0].style.display = "block";
+      fullscreen.style.display = "block";
+    } else return;
+  };
+  LogInButton[0].addEventListener("click", function(e) {
+    intenButtonAjax(function() {
       LogIn[0].style.display = "none";
       fullscreen.style.display = "none";
-      return;
-    };
-    inten.innerHTML = "已关注";
-    canso.style.display = "inline-block";
-    inten.style.color = "black";
-    inten.style.background = "url(./img/tick_off.png) no-repeat";
-    inten.style.backgroundPosition = "8px";
-    inten.style.width = "52px";
-    inten.style.borderRadius = "0px;";
-    intencl[0].style.border = "1px solid #efefef";
-  };
+      inten.innerHTML = "已关注";
+      canso.style.display = "inline-block";
+      inten.style.color = "#313131";
+      inten.style.background = "url(../img/tick_off.png) no-repeat";
+      inten.style.backgroundPositionY = "5px";
+      inten.style.backgroundPositionX = "3px";
+      intencl[0].style.border = "1px solid #efefef";
+      var date = new Date();
+      var past = new Date(date.setDate(date.getDate() + 3));
+      cookie.set("loginstata", "loged", past);
+    });
+  });
+  LogCha[0].addEventListener("click", function() {
+    LogIn[0].style.display = "none";
+    fullscreen.style.display = "none";
+  });
   canso.onclick = function() {
     inten.innerHTML = "关注";
     canso.style.display = "none";
@@ -113,7 +199,23 @@ var fullscreen = document.getElementById("fullscreen"); //浮层
     inten.style.width = null;
     inten.style.borderRadius = null;
     intencl[0].style.border = null;
+    clickflag = true;
+    cookie.remove("loginstata");
   };
+  function logingstata() {
+    var cookielog = cookie.get();
+    if (cookielog.loginstata === "loged") {
+      clickflag = false;
+      inten.innerHTML = "已关注";
+      canso.style.display = "inline-block";
+      inten.style.color = "#313131";
+      inten.style.background = "url(../img/tick_off.png) no-repeat";
+      inten.style.backgroundPositionY = "5px";
+      inten.style.backgroundPositionX = "3px";
+      intencl[0].style.border = "1px solid #efefef";
+    }
+  }
+  logingstata();
 })();
 /******************************************************************/
 
@@ -140,18 +242,16 @@ var fullscreen = document.getElementById("fullscreen"); //浮层
   var gray = document.getElementsByClassName("O124_remaind");
   var remaindarea = document.getElementById("remaindarea");
   var norebu = document.getElementById("noremaind");
-  var cookstr = "remaind=no; expires=" + past;
   norebu.onclick = function() {
-    gray[0].style.backgroundColor = "#ffffff";
+    cookie.set("remaind", "no", past);
     remaindarea.style.display = "none";
-    document.cookie = cookstr;
+    gray[0].style.backgroundColor = "#ffffff";
   };
   function nore() {
-    var Mycookir = document.cookie;
-    var remaindcookie = Mycookir.split("; ");
-    if (remaindcookie[0] === "remaind=no") {
-      gray[0].style.backgroundColor = "#ffffff";
+    var cookieobj = cookie.get();
+    if (cookieobj.remaind === "no") {
       remaindarea.style.display = "none";
+      gray[0].style.backgroundColor = "#ffffff";
     }
   }
   nore();
@@ -160,59 +260,60 @@ var fullscreen = document.getElementById("fullscreen"); //浮层
 
 /*********************************课程数据获取*************************/
 (function() {
-  /**第一页课程*/
-  // var onePageDesignCourse = getDesignData(1, 20); //两个返回值，total:课程总数,list:当前页课程数组对象
-  // var onePageProgramCourse = getProgramData(1, 20); //两个返回值，total:课程总数,list:当前页课程数组对象
-  // /************/
-
-  // /**根据数据创造分页点击节点并创造第一页分页节点**/
-  // var pointFatherul = document.getElementById("O124_pagefather");
-  // var pointBrotherLi = document.getElementsByClassName("O124_right_change");
-  // /**
-  //  *
-  //  * @param {number} number
-  //  * @param {string} element
-  //  * @param {object} fatherele
-  //  * @param {object} brotherele
-  //  */
-  // function createSeqEle(number, element, fatherele, brotherele) {
-  //   for (var i = 1; i <= number; i++) {
-  //     var li = document.createElement(element);
-  //     var gztext = document.createTextNode(i);
-  //     li.appendChild(gztext);
-  //     fatherele.insertBefore(li, brotherele);
-  //   }
-  // }
-  // createSeqEle(
-  //   Math.ceil(onePageDesignCourse.total / 20),
-  //   "li",
-  //   pointFatherul,
-  //   pointBrotherLi[0]
-  // );
-  /*********************/
-
-  /******渲染第一页数据*******/
-  // var gradpaMainPoint = document.getElementById("grandpa_elet");
-  // var ulelement = document.getElementsByClassName("O124_inleft_main_ul");
-  // gradpaMainPoint.removeChild(ulelement[0]);
-  // var creatingUl = document.createElement("ul");
-  // creatingUl.innerHTML = "";
-  /*************************/
+  /*************************ajax**************************************/
+  /**
+   * 
+   * @param {string} pageNo 
+   * @param {string} pageSize 
+   * @param {function} callback 
+   */
+  function loadXMLDoc(pageNo, pageSize, callback) {
+    var xmlhttp = new XMLHttpRequest();
+    if (curType === 1) {
+      xmlhttp.open(
+        "GET",
+        "http://127.0.0.1:3000/course?type=0&pageNo=" +
+          pageNo +
+          "&pagesize=" +
+          pageSize +
+          "",
+        true
+      );
+    } else {
+      xmlhttp.open(
+        "GET",
+        "http://127.0.0.1:3000/course?type=1&pageNo=" +
+          pageNo +
+          "&pagesize=" +
+          pageSize +
+          "",
+        true
+      );
+    }
+    xmlhttp.send(null);
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        callback(xmlhttp.responseText);
+      }
+    };
+  }
 
   // 配置
   var curType = 0; // 当前分类 0: 产品设计, 1: 编程语言
   var pageNo = 1; // 当前页码
   var pageSize = 20; // 每页数量
-  var firstGenPaging = true;//是否第一次生成分页，防止重复绑定事件
 
   // 元素
   var listWrapEle = document.querySelector("#grandpa_elet");
 
   // 初始化
   bindToggleCatagoryEvent();
-  var data = getListData();
-  genCourseList(data.list);
-  genPaging(data.total);
+  getListData(function(data) {
+    var json = JSON.parse(data);
+
+    genCourseList(json.data.list);
+    genPaging(json.data.total);
+  });
 
   /**
    * 绑定切换事件
@@ -255,18 +356,21 @@ var fullscreen = document.getElementById("fullscreen"); //浮层
     });
     // 初始化课程列表到第一页
     pageNo = 1;
-    var data = getListData();
-    genCourseList(data.list);
-    genPaging(data.total);
+    getListData(function(data) {
+      var json = JSON.parse(data);
+      console.log(json);
+
+      genCourseList(json.data.list);
+      genPaging(json.data.total);
+    });
   }
 
   /**
    * 获取列表数据
    * 根据当前的分类类型和页码获取数据
    */
-  function getListData() {
-    var getDataFn = curType === 0 ? getDesignData : getProgramData;
-    return getDataFn(pageNo, pageSize);
+  function getListData(callback) {
+    loadXMLDoc(pageNo, pageSize, callback);
   }
 
   /**
@@ -312,14 +416,14 @@ var fullscreen = document.getElementById("fullscreen"); //浮层
   function clearCourseList() {
     listWrapEle.innerHTML = "";
   }
-
   /**
    * 生成分页，并绑定事件
    */
   function genPaging(total) {
+    var pagegrandEle = document.getElementById("O124_pagegrandfather");
+    pagegrandEle.innerHTML =
+      '<ul id="O124_pagefather"><li class="O124_left_change"></li><li class="O124_right_change" id="pagingBrother"></li></ul>';
     var PagingFatherEln = document.getElementById("O124_pagefather");
-    PagingFatherEln.innerHTML =
-      '<li class="O124_left_change"></li><li class="O124_right_change" id="pagingBrother"></li>';
     var pagingBrother = document.getElementById("pagingBrother");
     var PageNum = Math.ceil(total / 20);
     for (i = 1; i <= PageNum; i++) {
@@ -330,24 +434,25 @@ var fullscreen = document.getElementById("fullscreen"); //浮层
     }
     var pagepoint = PagingFatherEln.childNodes;
     pagepoint[1].className = "active";
-    if (firstGenPaging) {
-      firstGenPaging = false
-      PagingFatherEln.addEventListener("click", function(event) {
-        var tar = event.target;
-        if (Number(tar.innerHTML) !== 0) {
-          // 点击页码
-          changePage(parseInt(tar.innerHTML), tar);
-        } else if (tar.className === "O124_left_change") {
-          prev();
-          // 上一页
-        } else if (tar.className === "O124_right_change") {
-          next();
-          // 下一页
-        }
-        data = getListData();
-        genCourseList(data.list);
+    PagingFatherEln.addEventListener("click", function(event) {
+      var tar = event.target;
+      if (Number(tar.innerHTML) !== 0) {
+        // 点击页码
+        changePage(parseInt(tar.innerHTML), tar);
+      } else if (tar.className === "O124_left_change") {
+        prev();
+        // 上一页
+      } else if (tar.className === "O124_right_change") {
+        console.log(pageNo);
+        next();
+
+        // 下一页
+      }
+      getListData(function(data) {
+        var json = JSON.parse(data);
+        genCourseList(json.data.list);
       });
-    }
+    });
     function prev() {
       // 如果是第一页，直接return
       if (pageNo === 1) {
@@ -360,6 +465,7 @@ var fullscreen = document.getElementById("fullscreen"); //浮层
     }
 
     function next() {
+      console.log(total);
       if (pageNo === Math.ceil(total / 20)) {
         return;
       }
@@ -381,6 +487,7 @@ var fullscreen = document.getElementById("fullscreen"); //浮层
     }
   }
 })();
+
 /**********************************************************************/
 
 // (function() {
