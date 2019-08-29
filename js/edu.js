@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-29 15:03:12
+ * @LastEditTime: 2019-07-29 15:03:12
+ * @LastEditors: your name
+ */
 var fullscreen = document.getElementById("fullscreen"); //浮层
 
 var cookie = {
